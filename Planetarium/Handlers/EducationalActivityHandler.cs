@@ -136,7 +136,7 @@ namespace Planetarium.Handlers {
                             + " EAE.banderaPresencial,"
                             + " T.categoria,"
                             + " AE.rutasMaterialesEducativos"
-                            + " FROM Funcionario F RIGHT JOIN ActividadEducativa AE ON F.cedulaPK  = AE.cedulaFK "
+                            + "FROM Funcionario F RIGHT JOIN ActividadEducativa AE ON F.cedulaPK  = AE.cedulaFK "
                             + " LEFT JOIN ActividadEducativaPerteneceATopico AEPT ON AE.tituloPK = AEPT.tituloPKFK"
                             + " LEFT JOIN Topico T ON AEPT.nombreTopicoPKFK = T.nombrePK"
                             + " RIGHT JOIN EventoActividadEducativa EAE ON EAE.tituloPKFK = AE.tituloPK"
