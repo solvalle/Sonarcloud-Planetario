@@ -137,11 +137,11 @@ namespace Planetarium.Handlers {
                             + " T.categoria,"
                             + " AE.rutasMaterialesEducativos"
                             + "FROM Funcionario F RIGHT JOIN ActividadEducativa AE ON F.cedulaPK  = AE.cedulaFK "
-                            + " LEFT JOIN ActividadEducativaPerteneceATopico AEPT ON AE.tituloPK = AEPT.tituloPKFK"
-                            + " LEFT JOIN Topico T ON AEPT.nombreTopicoPKFK = T.nombrePK"
-                            + " RIGHT JOIN EventoActividadEducativa EAE ON EAE.tituloPKFK = AE.tituloPK"
-                            + " WHERE EAE.estadoRevision = " + state
-                            + " ORDER BY EAE.fechaInicioPK DESC";
+                            + "LEFT JOIN ActividadEducativaPerteneceATopico AEPT ON AE.tituloPK = AEPT.tituloPKFK"
+                            + "LEFT JOIN Topico T ON AEPT.nombreTopicoPKFK = T.nombrePK"
+                            + "RIGHT JOIN EventoActividadEducativa EAE ON EAE.tituloPKFK = AE.tituloPK"
+                            + "WHERE EAE.estadoRevision = " + state
+                            + "ORDER BY EAE.fechaInicioPK DESC";
 
             DataTable resultingTable = CreateTableFromQuery(query);
             foreach (DataRow rawEducationalInfo in resultingTable.Rows) {
@@ -342,7 +342,7 @@ namespace Planetarium.Handlers {
             string query = "SELECT EAE.tituloPKFK, (EAE.capacidadMaxima - COUNT(I.idEntradaPKFK)) AS Cupos " +
                            "FROM Inscribirse I " +
                            "RIGHT JOIN EventoActividadEducativa EAE ON(I.tituloPKFK = EAE.tituloPKFK AND I.fechaInicioPKFK = EAE.fechaInicioPK) " +
-                           "WHERE EAE.tituloPKFK = '" + activityTitle + "' " +
+                           "WHERE EAE.tituloPKFK = '" + activityTitle + "'" +
                            "AND EAE.fechaInicioPK = '" + activityDate + "' " +
                            "GROUP BY EAE.tituloPKFK, EAE.fechaInicioPK, EAE.capacidadMaxima;";
 
@@ -352,9 +352,9 @@ namespace Planetarium.Handlers {
         }
 
         public int GetMaxCapacity(string activityTitle, string activityDate) {
-            string query = "SELECT EAE.capacidadMaxima " +
+            string query = "SELECT" +
                            "FROM EventoActividadEducativa EAE " +
-                           "WHERE EAE.tituloPKFK = '" + activityTitle + "' " +
+                           "WHERE EAE.tituloPKFK = '" + activityTitle + "'" +
                            "AND EAE.fechaInicioPK = '" + activityDate + "' ";
 
             DataTable resultingTable = CreateTableFromQuery(query);
@@ -366,7 +366,7 @@ namespace Planetarium.Handlers {
             string query = "SELECT E.numeroAsiento " +
                            "FROM Inscribirse I " +
                            "INNER JOIN Entrada E ON I.idEntradaPKFK = E.idPK " +
-                           "WHERE I.tituloPKFK = '" + activityTitle + "' " +
+                           "WHERE I.tituloPKFK = '" + activityTitle + "'" +
                            "AND I.fechaInicioPKfk = '" + activityDate + "'";
 
             DataTable resultingTable = CreateTableFromQuery(query);    
@@ -381,7 +381,7 @@ namespace Planetarium.Handlers {
         public double GetPrice(string activityTitle, string activityDate) {
             string query = "SELECT precio " +
                            "FROM EventoActividadEducativa EAE " +
-                           "WHERE EAE.tituloPKFK = '" + activityTitle + "' " +
+                           "WHERE EAE.tituloPKFK = '" + activityTitle + "'" +
                            "AND EAE.fechaInicioPK = '" + activityDate + "' ";
 
             DataTable resultingTable = CreateTableFromQuery(query);
