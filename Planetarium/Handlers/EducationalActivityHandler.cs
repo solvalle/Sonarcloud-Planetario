@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -339,11 +339,11 @@ namespace Planetarium.Handlers {
         }
 
         public bool CheckCapacity(string activityTitle, string activityDate) {
-            string query = "SELECT EAE.tituloPKFK, (EAE.capacidadMaxima - COUNT(I.idEntradaPKFK)) AS Cupos " +
-                           "FROM Inscribirse I " +
-                           "RIGHT JOIN EventoActividadEducativa EAE ON(I.tituloPKFK = EAE.tituloPKFK AND I.fechaInicioPKFK = EAE.fechaInicioPK) " +
-                           "WHERE EAE.tituloPKFK = '" + activityTitle + "' " +
-                           "AND EAE.fechaInicioPK = '" + activityDate + "' " +
+            string query = "SELECT EAE.tituloPKFK, (EAE.capacidadMaxima - COUNT(I.idEntradaPKFK)) AS Cupos" +
+                           "FROM Inscribirse I" +
+                           "RIGHT JOIN EventoActividadEducativa EAE ON(I.tituloPKFK = EAE.tituloPKFK AND I.fechaInicioPKFK = EAE.fechaInicioPK)" +
+                           "WHERE EAE.tituloPKFK = '" + activityTitle + "'" +
+                           "AND EAE.fechaInicioPK = '" + activityDate + "'" +
                            "GROUP BY EAE.tituloPKFK, EAE.fechaInicioPK, EAE.capacidadMaxima;";
 
             DataTable resultingTable = CreateTableFromQuery(query);
