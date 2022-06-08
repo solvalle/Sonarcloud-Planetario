@@ -85,7 +85,7 @@ button {
     @include corners (5px);
     background: #0094ff;
     color: $white;
-    border: solid 1px $white;
+    border: solid 1px white;
     text-decoration: none;
     cursor: pointer;
     font-size: 1.2em;
