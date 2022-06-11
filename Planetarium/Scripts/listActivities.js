@@ -4,18 +4,20 @@ async function main() {
 }
 
 function matchAllTitles(activities, text) {
-    matching = new Boolean(false);
+    var matching = new Boolean(false);
     for (var activity in activities) {
         matching = match(activities[activity].Title, text)
             || match(activities[activity].Category, text)
             || match(activities[activity].ComplexityLevel, text)
-            || matchList(activities[activity].TargetAudience, text);
+            || matchList(activities[activity].TargetAudience, text, activities[activity].TargetAudience.length);
         if (text == "")
-            show(activities[activity].Title)
+            show(activities[activity].Title);
         else if (matching)
-            show(activities[activity].Title)
-        else
-            hide(activities[activity].Title)
+            show(activities[activity].Title);
+        else if (!matching)
+            hide(activities[activity].Title);
+        else 
+            hide(activities[activity].Title);
     }
     return matching;
 }
