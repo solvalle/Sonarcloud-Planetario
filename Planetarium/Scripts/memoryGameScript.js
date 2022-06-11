@@ -18,7 +18,7 @@ function flipCard() {
     this.classList.add('flip');
 
     if (!hasFlippedCard) {
-        hasFlippedCard = true;
+        hasFlippedCard;
         firstCard = this;
 
         return;

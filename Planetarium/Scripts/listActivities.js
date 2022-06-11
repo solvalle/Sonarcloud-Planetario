@@ -4,7 +4,7 @@ async function main() {
 }
 
 function matchAllTitles(activities, text) {
-    var matching = new Boolean(false);
+    matching = new Boolean(false);
     for (var activity in activities) {
         matching = match(activities[activity].Title, text)
             || match(activities[activity].Category, text)
