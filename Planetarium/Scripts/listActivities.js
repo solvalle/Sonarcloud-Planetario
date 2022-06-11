@@ -14,8 +14,6 @@ function matchAllTitles(activities, text) {
             show(activities[activity].Title);
         else if (matching)
             show(activities[activity].Title);
-        else if (!matching)
-            hide(activities[activity].Title);
         else 
             hide(activities[activity].Title);
     }
