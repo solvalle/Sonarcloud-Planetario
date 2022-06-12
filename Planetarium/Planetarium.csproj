@@ -152,7 +152,12 @@
     <Compile Include="Models\EducationalActivityEventModel.cs" />
     <Compile Include="Models\EducationalActivityModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\ItemAdvanceModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\QuizModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\StreamingModel.cs" />
     <Compile Include="Models\TicketAdvanceModel.cs" />
     <Compile Include="Models\TicketModel.cs" />
     <Compile Include="Models\TxtContentParser.cs" />
